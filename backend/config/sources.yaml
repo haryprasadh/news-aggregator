@@ -1,0 +1,99 @@
+# Source packs for the news desk.
+#
+# Each entry: name, url (RSS/Atom), tags. Tags are how the digest builder and
+# the LLM `fetch_rss_pack` tool select feeds. Edit freely. If a feed breaks,
+# remove it; the fetcher skips failures silently.
+#
+# Tag conventions used by the digest builder:
+#   india        - national news, must-know
+#   telangana    - Telangana state
+#   hyderabad    - Hyderabad city + nearby (incl. Mahabubabad)
+#   tech         - tech industry, engineering
+#   jobs         - hiring / careers
+#   exam-upsc    - UPSC current affairs
+#   exam-ssc     - SSC current affairs
+#   trusted      - high-trust sources (official/major outlets)
+#   wildcard     - serendipity / interesting-but-verify
+
+sources:
+  # ---------- India / National (trusted) ----------
+  - name: The Hindu - National
+    url: https://www.thehindu.com/news/national/feeder/default.rss
+    tags: [india, trusted, exam-upsc]
+  - name: The Hindu - Front Page
+    url: https://www.thehindu.com/news/feeder/default.rss
+    tags: [india, trusted]
+  - name: Indian Express - India
+    url: https://indianexpress.com/section/india/feed/
+    tags: [india, trusted]
+  - name: Times of India - Top Stories
+    url: https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms
+    tags: [india]
+  - name: PIB - Press Releases (English)
+    url: https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3
+    tags: [india, trusted, exam-upsc]
+  - name: PRS Legislative - Daily
+    url: https://prsindia.org/feed
+    tags: [india, trusted, exam-upsc]
+
+  # ---------- Telangana / Hyderabad ----------
+  - name: The Hindu - Hyderabad
+    url: https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss
+    tags: [hyderabad, telangana, trusted]
+  - name: The Hindu - Telangana
+    url: https://www.thehindu.com/news/national/telangana/feeder/default.rss
+    tags: [telangana, trusted]
+  - name: Deccan Chronicle - Telangana
+    url: https://www.deccanchronicle.com/rss_feed/
+    tags: [telangana, hyderabad]
+  - name: Telangana Today - Hyderabad
+    url: https://telanganatoday.com/category/hyderabad/feed
+    tags: [hyderabad, telangana]
+  - name: Telangana Today - State
+    url: https://telanganatoday.com/category/telangana/feed
+    tags: [telangana]
+
+  # ---------- Tech / Engineering ----------
+  - name: Hacker News - Front Page
+    url: https://hnrss.org/frontpage
+    tags: [tech, trusted]
+  - name: The Verge
+    url: https://www.theverge.com/rss/index.xml
+    tags: [tech]
+  - name: Ars Technica
+    url: http://feeds.arstechnica.com/arstechnica/index
+    tags: [tech, trusted]
+  - name: TechCrunch
+    url: https://techcrunch.com/feed/
+    tags: [tech]
+  - name: MIT Technology Review
+    url: https://www.technologyreview.com/feed/
+    tags: [tech, trusted]
+  - name: YourStory
+    url: https://yourstory.com/feed
+    tags: [tech, india, jobs]
+  - name: Inc42
+    url: https://inc42.com/feed/
+    tags: [tech, india]
+
+  # ---------- Jobs / Careers ----------
+  - name: HN - Who is hiring (monthly thread digest)
+    url: https://hnrss.org/newest?q=Ask+HN%3A+Who+is+hiring
+    tags: [jobs, tech]
+  - name: Remote OK
+    url: https://remoteok.com/remote-jobs.rss
+    tags: [jobs, tech]
+
+  # ---------- Wildcard / Serendipity ----------
+  - name: HN - Best (week)
+    url: https://hnrss.org/best
+    tags: [wildcard, tech]
+  - name: Atlas Obscura
+    url: https://www.atlasobscura.com/feeds/latest
+    tags: [wildcard]
+  - name: Quanta Magazine
+    url: https://www.quantamagazine.org/feed/
+    tags: [wildcard, tech, trusted]
+  - name: Aeon
+    url: https://aeon.co/feed.rss
+    tags: [wildcard]

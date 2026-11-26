@@ -1,0 +1,51 @@
+# Defaults the digest builder uses unless overridden by a request.
+#
+# Edit these to tune the daily digest to your priorities. The orchestrator
+# preserves section order. Each section maps to a set of RSS tags and an
+# optional set of seed search queries (used only if a search API key is set).
+
+profile:
+  location_ladder:
+    - Mahabubabad
+    - Hyderabad
+    - Telangana
+    - South India
+    - India
+    - World
+  persona: >
+    Software engineer based near Mahabubabad / Hyderabad. Wants short,
+    point-wise updates: civic must-knows for an Indian citizen, Telangana /
+    Hyderabad local, tech industry trends, and one wildcard. Optionally
+    framed for UPSC / SSC CGL current affairs when asked.
+
+digest:
+  recency_hours: 24
+  max_items_per_section: 8
+  max_bullets_per_section: 6
+  sections:
+    - id: india_must_know
+      title: India - must know today
+      tags: [india, trusted]
+      seed_queries:
+        - "India top news today"
+        - "India government policy this week"
+    - id: telangana_hyderabad
+      title: Telangana & Hyderabad
+      tags: [hyderabad, telangana]
+      seed_queries:
+        - "Hyderabad news today"
+        - "Telangana government Mahabubabad district"
+    - id: tech
+      title: Tech for engineers
+      tags: [tech]
+      seed_queries:
+        - "software engineering trends this week"
+        - "AI industry news today"
+    - id: jobs
+      title: Jobs & hiring
+      tags: [jobs]
+      seed_queries: []
+    - id: wildcard
+      title: Wildcard - verify before you share
+      tags: [wildcard]
+      seed_queries: []

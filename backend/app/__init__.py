@@ -1,0 +1,1 @@
+"""Local news desk backend."""
